@@ -7,11 +7,14 @@ export interface Posts {
   _id: string;
   title: string;
   body: string;
-  author: string;
+  author: { username: string };
   published: boolean;
   timeStamp: string;
   comments: Array<Comments>;
   __v: number;
+}
+export interface ItemsList {
+  items: Posts[];
 }
 export type PostsContextState = {
   posts: Posts[];

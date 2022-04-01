@@ -1,8 +1,12 @@
-import { SyntheticEvent, useRef, useState } from 'react';
+import { SyntheticEvent, useRef, useContext, useState } from 'react';
+import { PostsContext } from '../PostsProvider';
 
 interface loginProps {}
 
-export default function Login() {
+export default function Login(): JSX.Element {
+  const { updateIsLoggedIn } = useContext(PostsContext);
+  const [showErrorMessage, updateShowErrorMessage] = useState(false);
+
   const userRef = useRef<HTMLInputElement>(null);
   const passRef = useRef<HTMLInputElement>(null);
 
@@ -25,15 +29,22 @@ export default function Login() {
     console.log(responseData);
     if (responseData.token) {
       localStorage.setItem('token', `Bearer ${responseData.token}`);
+      updateIsLoggedIn(true);
+      updateShowErrorMessage(false);
+    } else {
+      updateShowErrorMessage(true);
     }
   }
   return (
-    <form onSubmit={handleSubmit} method="post">
-      <label htmlFor="username">Username: </label>
-      <input type="text" name="username" id="username" className="login-username" ref={userRef} />
-      <label htmlFor="password">Password: </label>
-      <input type="text" name="password" id="password" className="login-password" ref={passRef} />
-      <button>Sign In</button>
-    </form>
+    <section className="form-container">
+      {showErrorMessage && <h3>Incorrect Username or Password</h3>}
+      <form onSubmit={handleSubmit} method="post">
+        <label htmlFor="username">Username: </label>
+        <input type="text" name="username" id="username" className="login-username" ref={userRef} />
+        <label htmlFor="password">Password: </label>
+        <input type="text" name="password" id="password" className="login-password" ref={passRef} />
+        <button>Sign In</button>
+      </form>
+    </section>
   );
 }

@@ -7,10 +7,10 @@ import PostIndex from './PostIndex';
 import Login from './Login';
 
 export default function Main() {
-  const { isLoggedIn } = useContext(PostsContext);
+  const { isLoggedIn, posts } = useContext(PostsContext);
   return (
     <Routes>
-      <Route path="/" element={isLoggedIn ? <PostIndex /> : <Login />} />
+      <Route path="/" element={isLoggedIn ? <PostIndex items={posts} /> : <Login />} />
       <Route path="/post/:postId" element={<BlogPost />} />
       <Route path="/login" element={<Login />} />
     </Routes>
