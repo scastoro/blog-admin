@@ -15,6 +15,9 @@ export interface Posts {
 }
 export type PostsContextState = {
   posts: Posts[];
-  addPost: (post: Posts) => void;
+  isLoggedIn: Boolean;
+  response: String;
   updatePosts: (posts: Posts[]) => void;
+  updateIsLoggedIn: (loggedIn: Boolean) => void;
+  updateResponse: (response: string) => void;
 };

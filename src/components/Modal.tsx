@@ -1,1 +1,1 @@
-export default function modal() {}
+export default function Modal() {}

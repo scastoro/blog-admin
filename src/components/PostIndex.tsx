@@ -1,3 +1,3 @@
-export default function postIndex() {
-  return <main></main>;
+export default function PostIndex() {
+  return <main>Post index</main>;
 }
