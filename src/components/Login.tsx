@@ -12,13 +12,23 @@ export default function Login() {
       username: userRef.current?.value,
       password: passRef.current?.value,
     };
+    console.log(JSON.stringify(data));
     const response = await fetch('http://localhost:3000/auth/login', {
       method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
       body: JSON.stringify(data),
     });
+    const responseData = await response.json();
+
+    console.log(responseData);
+    if (responseData.token) {
+      localStorage.setItem('token', `Bearer ${responseData.token}`);
+    }
   }
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} method="post">
       <label htmlFor="username">Username: </label>
       <input type="text" name="username" id="username" className="login-username" ref={userRef} />
       <label htmlFor="password">Password: </label>
