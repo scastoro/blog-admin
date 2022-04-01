@@ -10,9 +10,9 @@ export default function Main() {
   const { isLoggedIn } = useContext(PostsContext);
   return (
     <Routes>
-      <Route path="/" element={isLoggedIn ? <PostIndex /> : <Login formText="Login" />} />
+      <Route path="/" element={isLoggedIn ? <PostIndex /> : <Login />} />
       <Route path="/post/:postId" element={<BlogPost />} />
-      <Route path="/login" element={<Login formText="Login" />} />
+      <Route path="/login" element={<Login />} />
     </Routes>
   );
 }
