@@ -1,12 +1,6 @@
-import { useContext } from 'react';
-import { useParams } from 'react-router-dom';
-import { PostsContext } from '../PostsProvider';
+import { Posts } from '../types/types';
 
-export default function BlogPost() {
-  const { posts } = useContext(PostsContext);
-  const { postId } = useParams();
-  const currentPost = posts.find((post) => post._id === postId);
-  console.log(currentPost);
+export default function BlogPost({ currentPost }: { currentPost: Posts }) {
   return (
     <section className="blog-post">
       <h1 className="post-heading">{currentPost?.title}</h1>
