@@ -16,11 +16,17 @@ export interface Posts {
 export interface ItemsList {
   items: Posts[];
 }
+export interface BlogPostItem {
+  blogPost: Posts;
+}
+export interface CommentsList {
+  commentsList: Comments[];
+}
 export type PostsContextState = {
   posts: Posts[];
   isLoggedIn: Boolean;
-  response: String;
+  response: Boolean;
   updatePosts: (posts: Posts[]) => void;
   updateIsLoggedIn: (loggedIn: Boolean) => void;
-  updateResponse: (response: string) => void;
+  toggleResponse: () => void;
 };

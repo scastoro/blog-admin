@@ -4,10 +4,10 @@ import { Posts, PostsContextState } from './types/types';
 const contextDefaultValues: PostsContextState = {
   posts: [],
   isLoggedIn: false,
-  response: '',
+  response: false,
   updatePosts: () => {},
   updateIsLoggedIn: () => {},
-  updateResponse: () => {},
+  toggleResponse: () => {},
 };
 
 export const PostsContext = createContext<PostsContextState>(contextDefaultValues);
@@ -15,13 +15,13 @@ export const PostsContext = createContext<PostsContextState>(contextDefaultValue
 const PostsProvider: FC = ({ children }) => {
   const [posts, setPosts] = useState<Posts[]>(contextDefaultValues.posts);
   const [isLoggedIn, setIsLoggedIn] = useState<Boolean>(contextDefaultValues.isLoggedIn);
-  const [response, setResponse] = useState<String>(contextDefaultValues.response);
+  const [response, setResponse] = useState<Boolean>(contextDefaultValues.response);
 
   const updatePosts = (newPosts: Posts[]) => setPosts(newPosts);
 
   const updateIsLoggedIn = (loggedIn: Boolean) => setIsLoggedIn(loggedIn);
 
-  const updateResponse = (response: String) => setResponse(response);
+  const toggleResponse = () => setResponse(!response);
 
   return (
     <PostsContext.Provider
@@ -31,7 +31,7 @@ const PostsProvider: FC = ({ children }) => {
         response,
         updatePosts,
         updateIsLoggedIn,
-        updateResponse,
+        toggleResponse,
       }}
     >
       {children}

@@ -20,7 +20,7 @@ export default function PostContainer() {
   return (
     <section className="blog-post-container">
       <button onClick={toggleShowEdit}>{!showEdit ? 'Edit Post' : 'Show Post'}</button>
-      {showEdit ? <EditPost /> : <BlogPost currentPost={currentPost} />}
+      {showEdit ? <EditPost blogPost={currentPost} /> : <BlogPost blogPost={currentPost} />}
     </section>
   );
 }

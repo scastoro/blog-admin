@@ -13,3 +13,4 @@
 - Some way to save drafts?
 - Refs or controlled component?
 - [ ] Logout button that sets isLoggedIn to false and deletes token from localStorage
+- [ ] Update timestamp to be when post is published rather when it is created

@@ -6,7 +6,7 @@ import Loading from './components/Loading';
 import { Link } from 'react-router-dom';
 
 function App() {
-  const { posts, updateIsLoggedIn, updatePosts } = useContext(PostsContext);
+  const { response, posts, updateIsLoggedIn, updatePosts } = useContext(PostsContext);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -29,7 +29,7 @@ function App() {
         setIsLoading(false);
       }
     })();
-  }, []);
+  }, [response]);
 
   return (
     <div className="App">
