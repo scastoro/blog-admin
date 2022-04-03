@@ -5,6 +5,7 @@ import { PostsContext } from '../PostsProvider';
 import PostIndex from './PostIndex';
 import Login from './Login';
 import PostContainer from './PostContainer';
+import NewPost from './NewPost';
 
 export default function Main() {
   const { isLoggedIn, posts } = useContext(PostsContext);
@@ -13,6 +14,7 @@ export default function Main() {
       <Route path="/" element={isLoggedIn ? <PostIndex items={posts} /> : <Login />} />
       <Route path="/post/:postId" element={<PostContainer />} />
       <Route path="/login" element={isLoggedIn ? <Navigate replace to="/" /> : <Login />} />
+      <Route path="/newpost" element={<NewPost />} />
     </Routes>
   );
 }

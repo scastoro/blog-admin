@@ -1,8 +1,14 @@
 import { SyntheticEvent, useContext, useRef } from 'react';
 import { PostsContext } from '../PostsProvider';
-import { BlogPostItem } from '../types/types';
+import { Posts } from '../types/types';
 
-export default function EditPost({ blogPost }: BlogPostItem) {
+export default function EditPost({
+  blogPost,
+  handleShowEdit,
+}: {
+  blogPost: Posts;
+  handleShowEdit: () => void;
+}) {
   const { toggleResponse } = useContext(PostsContext);
   const postTitle = useRef<HTMLInputElement>(null);
   const postBody = useRef<HTMLTextAreaElement>(null);
@@ -27,6 +33,7 @@ export default function EditPost({ blogPost }: BlogPostItem) {
     console.log(responseData);
     if (responseData.response) {
       toggleResponse();
+      handleShowEdit();
     }
   }
   return (

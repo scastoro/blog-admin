@@ -44,6 +44,9 @@ function App() {
           <li>
             <Link to="/signup">Sign Up</Link>
           </li>
+          <li>
+            <Link to="/newpost">New Post</Link>
+          </li>
         </ul>
       </nav>
       {isLoading ? <Loading /> : <Main />}
