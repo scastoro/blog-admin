@@ -13,6 +13,7 @@
 - Some way to save drafts?
 - Refs or controlled component?
 - [ ] Logout button that sets isLoggedIn to false and deletes token from localStorage
-- [ ] Add button to publish posts
-- [ ] Update timestamp to be when post is published rather when it is created
-- [ ] Implement comment changing logic in edit comments with fetch call
+- [x] Add button to publish posts
+- [ ] Add post published timestamp
+- [x] Implement comment changing logic in edit comments with fetch call
+- [x] Implement delete comment functionality

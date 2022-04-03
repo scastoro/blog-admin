@@ -2,7 +2,7 @@ import { useContext, useState } from 'react';
 import BlogPost from './BlogPost';
 import EditPost from './EditPost';
 import CommentsDisplay from './CommentsDisplay';
-import EditComments from './EditComments';
+import EditComments from './EditCommentsContainer';
 import { useParams } from 'react-router-dom';
 import { PostsContext } from '../PostsProvider';
 
