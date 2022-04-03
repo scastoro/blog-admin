@@ -10,6 +10,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    setIsLoading(true);
     (async () => {
       const response = await fetch('http://localhost:3000/api/posts', {
         mode: 'cors',

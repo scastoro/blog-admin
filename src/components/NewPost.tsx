@@ -1,8 +1,12 @@
-import { useRef, SyntheticEvent } from 'react';
+import { useRef, SyntheticEvent, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { PostsContext } from '../PostsProvider';
 
 function NewPost() {
   const postTitle = useRef<HTMLInputElement>(null);
   const postBody = useRef<HTMLTextAreaElement>(null);
+  const navigate = useNavigate();
+  const { toggleResponse } = useContext(PostsContext);
 
   async function handleSubmit(event: SyntheticEvent): Promise<void> {
     event.preventDefault();
@@ -23,6 +27,8 @@ function NewPost() {
 
     console.log(responseData);
     if (responseData.response) {
+      toggleResponse();
+      navigate('/', { replace: true });
     }
   }
   return (
