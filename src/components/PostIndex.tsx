@@ -5,12 +5,6 @@ import Button from './Button';
 import Modal from './Modal';
 import { PostsContext } from '../PostsProvider';
 
-// When delete button press, show modal and pass correct item id to modal function
-// Modal will then make the delete call with the item id if yes btn pressed
-// How to pass the modal the correct item id?
-// Some kind of function?
-// On delete button call, store id in state pass that state to modal as props
-// On yes btn click, modal will send delete request with id
 export default function PostIndex({ items }: ItemsList) {
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [showPublishModal, setShowPublishModal] = useState(false);

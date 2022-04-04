@@ -4,9 +4,11 @@ import { PostsContext } from './PostsProvider';
 import './App.css';
 import Loading from './components/Loading';
 import { Link } from 'react-router-dom';
+import { Nav } from './components/styles/Nav.styles';
+import { StyledLink } from './components/styles/StyledLink.styles';
 
 function App() {
-  const { response, posts, updateIsLoggedIn, updatePosts } = useContext(PostsContext);
+  const { response, posts, isLoggedIn, updateIsLoggedIn, updatePosts } = useContext(PostsContext);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -33,23 +35,19 @@ function App() {
   }, [response]);
 
   return (
-    <div className="App">
-      <nav>
+    <div className='App'>
+      <Nav>
         <ul>
+          <li>{isLoggedIn && <Link to='/'>See Posts</Link>}</li>
           <li>
-            <Link to="/">See Posts</Link>
+            {isLoggedIn ? <Link to='/logout'>Log Out</Link> : <Link to='/login'>Log In</Link>}
           </li>
           <li>
-            <Link to="/login">Log In</Link>
+            <Link to='/signup'>Sign Up</Link>
           </li>
-          <li>
-            <Link to="/signup">Sign Up</Link>
-          </li>
-          <li>
-            <Link to="/newpost">New Post</Link>
-          </li>
+          <li>{isLoggedIn && <Link to='/newpost'>New Post</Link>}</li>
         </ul>
-      </nav>
+      </Nav>
       {isLoading ? <Loading /> : <Main />}
     </div>
   );

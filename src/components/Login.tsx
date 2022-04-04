@@ -1,10 +1,8 @@
 import { SyntheticEvent, useRef, useContext, useState } from 'react';
 import { PostsContext } from '../PostsProvider';
 
-interface loginProps {}
-
 export default function Login(): JSX.Element {
-  const { updateIsLoggedIn } = useContext(PostsContext);
+  const { updateIsLoggedIn, toggleResponse } = useContext(PostsContext);
   const [showErrorMessage, updateShowErrorMessage] = useState(false);
 
   const userRef = useRef<HTMLInputElement>(null);
@@ -16,7 +14,7 @@ export default function Login(): JSX.Element {
       username: userRef.current?.value,
       password: passRef.current?.value,
     };
-    console.log(JSON.stringify(data));
+
     const response = await fetch('http://localhost:3000/auth/login', {
       method: 'POST',
       headers: {
@@ -31,18 +29,25 @@ export default function Login(): JSX.Element {
       localStorage.setItem('token', `Bearer ${responseData.token}`);
       updateIsLoggedIn(true);
       updateShowErrorMessage(false);
+      toggleResponse();
     } else {
       updateShowErrorMessage(true);
     }
   }
   return (
-    <section className="form-container">
+    <section className='form-container'>
       {showErrorMessage && <h3>Incorrect Username or Password</h3>}
-      <form onSubmit={handleSubmit} method="post">
-        <label htmlFor="username">Username: </label>
-        <input type="text" name="username" id="username" className="login-username" ref={userRef} />
-        <label htmlFor="password">Password: </label>
-        <input type="text" name="password" id="password" className="login-password" ref={passRef} />
+      <form onSubmit={handleSubmit} method='post'>
+        <label htmlFor='username'>Username: </label>
+        <input type='text' name='username' id='username' className='login-username' ref={userRef} />
+        <label htmlFor='password'>Password: </label>
+        <input
+          type='password'
+          name='password'
+          id='password'
+          className='login-password'
+          ref={passRef}
+        />
         <button>Sign In</button>
       </form>
     </section>
