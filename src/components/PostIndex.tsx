@@ -1,9 +1,10 @@
 import { ItemsList, Posts } from '../types/types';
-import React, { useState, useContext, SyntheticEvent } from 'react';
+import { useState, useContext, SyntheticEvent } from 'react';
 import { Link } from 'react-router-dom';
 import Button from './Button';
 import Modal from './Modal';
 import { PostsContext } from '../PostsProvider';
+import { Main } from './styles/Main.styled';
 
 export default function PostIndex({ items }: ItemsList) {
   const [showDeleteModal, setShowDeleteModal] = useState(false);
@@ -61,9 +62,9 @@ export default function PostIndex({ items }: ItemsList) {
   }
   const posts = items.map((item: Posts) => {
     return (
-      <section className="post">
+      <section className='post'>
         <Link to={`/post/${item._id}`}>Edit Post</Link>
-        <Button name="Delete Post" handleClick={() => displayDeleteModal(item._id)} />
+        <Button name='Delete Post' handleClick={() => displayDeleteModal(item._id)} />
         <Button
           name={item.published ? 'Unpublish Post' : 'Publish Post'}
           handleClick={() => displayPublishModal(item._id)}
@@ -74,10 +75,10 @@ export default function PostIndex({ items }: ItemsList) {
     );
   });
   return (
-    <main>
+    <Main>
       {posts}{' '}
       {showDeleteModal && (
-        <Modal name="Delete" handleAction={deletePost} handleShow={toggleShowDeleteModal} />
+        <Modal name='Delete' handleAction={deletePost} handleShow={toggleShowDeleteModal} />
       )}
       {showPublishModal && (
         <Modal
@@ -86,6 +87,6 @@ export default function PostIndex({ items }: ItemsList) {
           handleShow={toggleShowPublishModal}
         />
       )}
-    </main>
+    </Main>
   );
 }

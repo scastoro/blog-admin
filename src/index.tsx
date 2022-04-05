@@ -5,10 +5,12 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import PostsProvider, { PostsContext } from './PostsProvider';
 import { BrowserRouter } from 'react-router-dom';
+import { GlobalStyle } from './components/styles/global';
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
+      <GlobalStyle />
       <PostsProvider>
         <App />
       </PostsProvider>

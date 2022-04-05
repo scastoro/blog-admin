@@ -1,11 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react';
 import Main from './components/Main';
 import { PostsContext } from './PostsProvider';
-import './App.css';
 import Loading from './components/Loading';
 import { Link } from 'react-router-dom';
-import { Nav } from './components/styles/Nav.styles';
-import { StyledLink } from './components/styles/StyledLink.styles';
+import { Nav } from './components/styles/Nav.styled';
 
 function App() {
   const { response, posts, isLoggedIn, updateIsLoggedIn, updatePosts } = useContext(PostsContext);
