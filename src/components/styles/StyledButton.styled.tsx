@@ -12,8 +12,10 @@ export const StyledButton = styled(Button)`
       : '#2c6ebe'};
   color: #fcfbfa;
   font-size: 14px;
+  cursor: pointer;
   outline: none;
   border: none;
   padding: 4px 21px;
   border-radius: 15px;
+  margin: 0 5px;
 `;

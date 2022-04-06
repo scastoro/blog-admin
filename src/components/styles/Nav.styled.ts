@@ -4,7 +4,7 @@ export const Nav = styled.nav`
   display: flex;
   justify-content: center;
   padding: 2rem 0;
-  font-size: 2.4rem;
+  font-size: 2.2rem;
   background-color: #2c6ebe;
   color: #fcfbfa;
 

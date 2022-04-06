@@ -11,6 +11,8 @@ const Section: React.FC<Props> = ({ className, children }) => (
 
 export const PostsSection = styled(Section)`
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-column-gap: 2rem;
+  grid-row-gap: 8rem;
+  font-size: 1.4rem;
 `;

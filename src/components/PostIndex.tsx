@@ -66,11 +66,11 @@ export default function PostIndex({ items }: ItemsList) {
   const posts = items.map((item: Posts) => {
     return (
       <PostCard className='post'>
+        <h2>{item.title}</h2>
         <StyledButton
           name={item.published ? 'Unpublish' : 'Publish'}
           handleClick={() => displayPublishModal(item._id)}
         />
-        <h4>{item.title}</h4>
         <p>{item.body}</p>
         <StyledButton>
           <Link to={`/post/${item._id}`}>View</Link>
