@@ -8,6 +8,7 @@ import { Main } from './styles/Main.styled';
 import { PostsSection } from './styles/PostsSection.styled';
 import { PostCard } from './styles/PostCard.styled';
 import { StyledButton } from './styles/StyledButton.styled';
+import { StyledModal } from './styles/StyledModal.styled';
 
 export default function PostIndex({ items }: ItemsList) {
   const [showDeleteModal, setShowDeleteModal] = useState(false);
@@ -80,20 +81,20 @@ export default function PostIndex({ items }: ItemsList) {
     );
   });
   return (
-    <Main>
+    <>
       <h1>Manage Blog Posts</h1>
       {/* <section className='posts-container'>{posts}</section> */}
       <PostsSection>{posts}</PostsSection>
       {showDeleteModal && (
-        <Modal name='Delete' handleAction={deletePost} handleShow={toggleShowDeleteModal} />
+        <StyledModal name='Delete' handleAction={deletePost} handleShow={toggleShowDeleteModal} />
       )}
       {showPublishModal && (
-        <Modal
+        <StyledModal
           name={items.find((item) => item._id === postId)?.published ? 'Unpublish' : 'Publish'}
           handleAction={publishPost}
           handleShow={toggleShowPublishModal}
         />
       )}
-    </Main>
+    </>
   );
 }

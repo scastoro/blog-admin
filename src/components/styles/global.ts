@@ -14,4 +14,8 @@ export const GlobalStyle = createGlobalStyle`
     color: inherit;
     text-decoration: none;
   }
+  #root{
+    position: relative;
+    height: 100vh;
+  }
 `;

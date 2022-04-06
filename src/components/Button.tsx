@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { SyntheticEvent } from 'react';
 
 interface Props {
   className?: string;
   name?: string;
-  handleClick?: () => void;
+  handleClick?: (() => void) | ((event: SyntheticEvent<Element, Event>) => Promise<void>);
   children?: React.ReactNode;
 }
 

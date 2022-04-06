@@ -1,3 +1,4 @@
+import { StyledButton } from './styles/StyledButton.styled';
 import { SyntheticEvent } from 'react';
 
 interface Props {
@@ -8,10 +9,12 @@ interface Props {
 }
 export default function Modal({ name, className, handleShow, handleAction }: Props) {
   return (
-    <section className='modal'>
-      <h2>Are you sure you want to {name} this post?</h2>
-      <button onClick={handleAction}>Yes</button>
-      <button>No</button>
+    <section className={className}>
+      <section className='modal-text'>
+        <h2>Are you sure you want to {name.toLowerCase()} this post?</h2>
+        <StyledButton handleClick={handleAction} name={name}></StyledButton>
+        <StyledButton handleClick={handleShow}>Cancel</StyledButton>
+      </section>
     </section>
   );
 }
