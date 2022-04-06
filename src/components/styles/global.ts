@@ -10,4 +10,8 @@ export const GlobalStyle = createGlobalStyle`
     font-size: 10px;
     font-family: 'Inter', sans-serif;
   }
+  a{
+    color: inherit;
+    text-decoration: none;
+  }
 `;

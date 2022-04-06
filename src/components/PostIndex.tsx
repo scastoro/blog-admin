@@ -6,6 +6,8 @@ import Modal from './Modal';
 import { PostsContext } from '../PostsProvider';
 import { Main } from './styles/Main.styled';
 import { PostsSection } from './styles/PostsSection.styled';
+import { PostCard } from './styles/PostCard.styled';
+import { StyledButton } from './styles/StyledButton.styled';
 
 export default function PostIndex({ items }: ItemsList) {
   const [showDeleteModal, setShowDeleteModal] = useState(false);
@@ -63,16 +65,18 @@ export default function PostIndex({ items }: ItemsList) {
   }
   const posts = items.map((item: Posts) => {
     return (
-      <section className='post'>
-        <Link to={`/post/${item._id}`}>Edit Post</Link>
-        <Button name='Delete Post' handleClick={() => displayDeleteModal(item._id)} />
-        <Button
-          name={item.published ? 'Unpublish Post' : 'Publish Post'}
+      <PostCard className='post'>
+        <StyledButton
+          name={item.published ? 'Unpublish' : 'Publish'}
           handleClick={() => displayPublishModal(item._id)}
         />
         <h4>{item.title}</h4>
         <p>{item.body}</p>
-      </section>
+        <StyledButton>
+          <Link to={`/post/${item._id}`}>View</Link>
+        </StyledButton>
+        <StyledButton name='Delete' handleClick={() => displayDeleteModal(item._id)} />
+      </PostCard>
     );
   });
   return (
