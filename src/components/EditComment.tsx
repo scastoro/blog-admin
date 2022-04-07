@@ -3,6 +3,7 @@ import { Comments } from '../types/types';
 import { useParams } from 'react-router-dom';
 import { PostsContext } from '../PostsProvider';
 import { StyledForm } from './styles/StyledForm.styled';
+import { StyledButton } from './styles/StyledButton.styled';
 
 function EditComment({ comment }: { comment: Comments }) {
   const { toggleResponse } = useContext(PostsContext);
@@ -42,7 +43,7 @@ function EditComment({ comment }: { comment: Comments }) {
         defaultValue={comment.body}
         ref={commentBody}
       />
-      <button>Edit Comment</button>
+      <StyledButton name='Submit' />
     </StyledForm>
   );
 }

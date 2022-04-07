@@ -8,17 +8,25 @@ export const StyledPostContainer = styled.section`
   grid-auto-rows: 50px;
   text-align: left;
 
+  h1 {
+    margin-top: 0;
+  }
   .blog-post,
   .edit-post-container {
     grid-column: 2/6;
     grid-row: 2 / 3;
   }
-  button:nth-of-type(1) {
+  .edit {
     grid-column: 6/7;
+    height: 85%;
+    width: 80%;
   }
   button:nth-of-type(2) {
     grid-row: 3/ 4;
     grid-column: -1 / -2;
+    height: 85%;
+    width: 80%;
+    margin: 0;
   }
   h2 {
     grid-row: 3/ 4;
@@ -28,5 +36,8 @@ export const StyledPostContainer = styled.section`
   .edit-comments-container {
     grid-row: 4 /5;
     grid-column: 2/7;
+  }
+  .comment {
+    margin-bottom: 2rem;
   }
 `;

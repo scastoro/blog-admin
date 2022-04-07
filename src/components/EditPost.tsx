@@ -2,6 +2,7 @@ import { SyntheticEvent, useContext, useRef } from 'react';
 import { PostsContext } from '../PostsProvider';
 import { Posts } from '../types/types';
 import { StyledForm } from './styles/StyledForm.styled';
+import { StyledButton } from './styles/StyledButton.styled';
 
 export default function EditPost({
   blogPost,
@@ -67,7 +68,7 @@ export default function EditPost({
           cols={40}
           rows={8}
         />
-        <button>Submit Changes</button>
+        <StyledButton name='Submit Changes'></StyledButton>
       </StyledForm>
     </section>
   );

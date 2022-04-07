@@ -1,6 +1,7 @@
 import { useRef, SyntheticEvent, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { PostsContext } from '../PostsProvider';
+import { StyledButton } from './styles/StyledButton.styled';
 import { StyledForm } from './styles/StyledForm.styled';
 
 function NewPost() {
@@ -44,7 +45,7 @@ function NewPost() {
           Enter Body:
         </label>
         <textarea id='blog-body' cols={30} rows={10} ref={postBody} />
-        <button>Submit New Post</button>
+        <StyledButton name='Submit Post' />
       </StyledForm>
     </section>
   );

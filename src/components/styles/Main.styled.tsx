@@ -10,16 +10,29 @@ export const Main = styled.main`
     margin: 4rem 0;
   }
   .new-post-container {
+    width: 40%;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    /* margin-left: -140px; */
-    width: 40%;
-    margin: 0 auto;
 
-    h1 {
-      /* margin-left: -10px; */
+    button {
+      margin-left: 0;
+    }
+  }
+  .login-container {
+    width: 60%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    form {
+      align-self: center;
+    }
+    button {
+      margin-left: 0;
     }
   }
 `;

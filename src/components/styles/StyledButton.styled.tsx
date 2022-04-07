@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 export const StyledButton = styled(Button)`
   background-color: ${(props) =>
-    props.name === 'Delete'
+    props.name?.includes('Delete')
       ? '#C91C45'
       : props.name === 'Publish'
       ? '#BE612C'

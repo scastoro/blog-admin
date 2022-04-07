@@ -34,6 +34,7 @@ export default function PostContainer() {
       <StyledButton
         name={!showEdit ? 'Edit Post' : 'Show Post'}
         handleClick={toggleShowEdit}
+        className='edit'
       ></StyledButton>
       <StyledButton
         name={!showEditComments ? 'Edit Comments' : 'Show Comments'}

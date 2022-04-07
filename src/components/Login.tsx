@@ -1,5 +1,7 @@
 import { SyntheticEvent, useRef, useContext, useState } from 'react';
 import { PostsContext } from '../PostsProvider';
+import { StyledForm } from './styles/StyledForm.styled';
+import { StyledButton } from './styles/StyledButton.styled';
 
 export default function Login(): JSX.Element {
   const { updateIsLoggedIn, toggleResponse } = useContext(PostsContext);
@@ -35,9 +37,10 @@ export default function Login(): JSX.Element {
     }
   }
   return (
-    <section className='form-container'>
+    <section className='login-container'>
       {showErrorMessage && <h3>Incorrect Username or Password</h3>}
-      <form onSubmit={handleSubmit} method='post'>
+      <h1>Login</h1>
+      <StyledForm submit={handleSubmit} method='post'>
         <label htmlFor='username'>Username: </label>
         <input type='text' name='username' id='username' className='login-username' ref={userRef} />
         <label htmlFor='password'>Password: </label>
@@ -48,8 +51,8 @@ export default function Login(): JSX.Element {
           className='login-password'
           ref={passRef}
         />
-        <button>Sign In</button>
-      </form>
+        <StyledButton name='Sign In'></StyledButton>
+      </StyledForm>
     </section>
   );
 }

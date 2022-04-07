@@ -18,4 +18,7 @@ export const GlobalStyle = createGlobalStyle`
     position: relative;
     height: 100vh;
   }
+  textarea{
+    font-family: 'Inter', sans-serif;
+  }
 `;
