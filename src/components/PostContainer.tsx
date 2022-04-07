@@ -6,6 +6,7 @@ import EditComments from './EditCommentsContainer';
 import { useParams } from 'react-router-dom';
 import { PostsContext } from '../PostsProvider';
 import { StyledButton } from './styles/StyledButton.styled';
+import { StyledPostContainer } from './styles/StyledPostContainer.styled';
 
 export default function PostContainer() {
   const [showEdit, setShowEdit] = useState(false);
@@ -25,25 +26,26 @@ export default function PostContainer() {
   console.log(currentPost);
 
   return (
-    <section className='blog-post-container'>
-      <StyledButton
-        name={!showEdit ? 'Edit Post' : 'Show Post'}
-        handleClick={toggleShowEdit}
-      ></StyledButton>
+    <StyledPostContainer className='blog-post-container'>
       {showEdit ? (
         <EditPost blogPost={currentPost} handleShowEdit={toggleShowEdit} />
       ) : (
         <BlogPost blogPost={currentPost} />
       )}
       <StyledButton
+        name={!showEdit ? 'Edit Post' : 'Show Post'}
+        handleClick={toggleShowEdit}
+      ></StyledButton>
+      <StyledButton
         name={!showEditComments ? 'Edit Comments' : 'Show Comments'}
         handleClick={toggleShowEditComments}
       ></StyledButton>
+      <h2>Comments</h2>
       {showEditComments ? (
         <EditComments commentsList={currentPost.comments} />
       ) : (
         <CommentsDisplay commentsList={currentPost.comments} />
       )}
-    </section>
+    </StyledPostContainer>
   );
 }

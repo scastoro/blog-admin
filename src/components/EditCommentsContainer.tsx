@@ -40,23 +40,23 @@ function EditCommentsContainer({ commentsList }: CommentsList) {
   }
   const editComments = commentsList.map((comment: Comments) => {
     return (
-      <section className="edit-comment-container">
+      <section className='edit-comment-container'>
         <EditComment comment={comment} />
-        <Button name="Delete Comment" handleClick={() => displayDeleteModal(comment._id)} />
+        <Button name='Delete Comment' handleClick={() => displayDeleteModal(comment._id)} />
       </section>
     );
   });
   return (
-    <div>
+    <section className='edit-comments-container'>
       {editComments}{' '}
       {showDeleteModal && (
         <Modal
-          name="Delete Comment"
+          name='Delete Comment'
           handleAction={deleteComment}
           handleShow={toggleShowDeleteModal}
         />
       )}
-    </div>
+    </section>
   );
 }
 
