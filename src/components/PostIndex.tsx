@@ -66,7 +66,7 @@ export default function PostIndex({ items }: ItemsList) {
   }
   const posts = items.map((item: Posts) => {
     return (
-      <PostCard className='post'>
+      <PostCard key={item._id} className='post'>
         <h2>{item.title}</h2>
         <StyledButton
           name={item.published ? 'Unpublish' : 'Publish'}

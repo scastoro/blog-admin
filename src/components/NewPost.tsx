@@ -1,6 +1,7 @@
 import { useRef, SyntheticEvent, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { PostsContext } from '../PostsProvider';
+import { StyledForm } from './styles/StyledForm.styled';
 
 function NewPost() {
   const postTitle = useRef<HTMLInputElement>(null);
@@ -32,18 +33,19 @@ function NewPost() {
     }
   }
   return (
-    <section className="new-post-container">
-      <form action="" method="post" onSubmit={handleSubmit}>
-        <label htmlFor="blog-title" className="blog-title-label">
+    <section className='new-post-container'>
+      <h1>Add New Post</h1>
+      <StyledForm method='post' submit={handleSubmit}>
+        <label htmlFor='blog-title' className='blog-title-label'>
           Enter Title:
         </label>
-        <input type="text" id="blog-title" className="blog-title-input" ref={postTitle} />
-        <label htmlFor="blog-body" className="blog-body-label">
+        <input type='text' id='blog-title' className='blog-title-input' ref={postTitle} />
+        <label htmlFor='blog-body' className='blog-body-label'>
           Enter Body:
         </label>
-        <textarea id="blog-body" cols={30} rows={10} ref={postBody} />
+        <textarea id='blog-body' cols={30} rows={10} ref={postBody} />
         <button>Submit New Post</button>
-      </form>
+      </StyledForm>
     </section>
   );
 }

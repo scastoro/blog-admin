@@ -2,9 +2,10 @@ import { SyntheticEvent, useState, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import { PostsContext } from '../PostsProvider';
 import { CommentsList, Comments } from '../types/types';
-import Button from './Button';
+import { StyledButton } from './styles/StyledButton.styled';
 import EditComment from './EditComment';
 import Modal from './Modal';
+import { StyledComments } from './styles/EditCommentsContainer.styled';
 
 function EditCommentsContainer({ commentsList }: CommentsList) {
   const [showDeleteModal, setShowDeleteModal] = useState(false);
@@ -40,10 +41,14 @@ function EditCommentsContainer({ commentsList }: CommentsList) {
   }
   const editComments = commentsList.map((comment: Comments) => {
     return (
-      <section className='edit-comment-container'>
+      <StyledComments key={comment._id}>
         <EditComment comment={comment} />
-        <Button name='Delete Comment' handleClick={() => displayDeleteModal(comment._id)} />
-      </section>
+        <StyledButton
+          name='Delete Comment'
+          className='delete'
+          handleClick={() => displayDeleteModal(comment._id)}
+        />
+      </StyledComments>
     );
   });
   return (

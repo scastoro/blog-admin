@@ -23,7 +23,6 @@ export default function PostContainer() {
   if (currentPost === undefined) {
     throw new TypeError('Could not find post, check state');
   }
-  console.log(currentPost);
 
   return (
     <StyledPostContainer className='blog-post-container'>

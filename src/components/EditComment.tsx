@@ -2,6 +2,7 @@ import { useRef, SyntheticEvent, useContext } from 'react';
 import { Comments } from '../types/types';
 import { useParams } from 'react-router-dom';
 import { PostsContext } from '../PostsProvider';
+import { StyledForm } from './styles/StyledForm.styled';
 
 function EditComment({ comment }: { comment: Comments }) {
   const { toggleResponse } = useContext(PostsContext);
@@ -31,18 +32,18 @@ function EditComment({ comment }: { comment: Comments }) {
     toggleResponse();
   }
   return (
-    <form className="edit-comment-form" method="POST" onSubmit={editComment}>
-      <label htmlFor="comment-body">Edit Comment Body:</label>
+    <StyledForm className='edit-comment-form' method='POST' submit={editComment}>
+      <label htmlFor='comment-body'>Edit Comment Body:</label>
       <textarea
-        name="comment-body"
-        id="body"
-        cols={30}
-        rows={10}
+        name='comment-body'
+        id='body'
+        cols={40}
+        rows={6}
         defaultValue={comment.body}
         ref={commentBody}
       />
       <button>Edit Comment</button>
-    </form>
+    </StyledForm>
   );
 }
 

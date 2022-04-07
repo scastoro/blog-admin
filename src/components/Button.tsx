@@ -8,8 +8,6 @@ interface Props {
 }
 
 function Button({ className, name, children, handleClick }: Props) {
-  console.log(typeof children);
-  console.log(children);
   return (
     <button className={className} onClick={handleClick}>
       {name} {children}

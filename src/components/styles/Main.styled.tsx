@@ -9,4 +9,17 @@ export const Main = styled.main`
     font-size: 3.6rem;
     margin: 4rem 0;
   }
+  .new-post-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    /* margin-left: -140px; */
+    width: 40%;
+    margin: 0 auto;
+
+    h1 {
+      /* margin-left: -10px; */
+    }
+  }
 `;

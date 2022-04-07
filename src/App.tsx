@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import { Nav } from './components/styles/Nav.styled';
 
 function App() {
-  const { response, posts, isLoggedIn, updateIsLoggedIn, updatePosts } = useContext(PostsContext);
+  const { response, isLoggedIn, updateIsLoggedIn, updatePosts } = useContext(PostsContext);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -40,9 +40,11 @@ function App() {
           <li>
             {isLoggedIn ? <Link to='/logout'>Log Out</Link> : <Link to='/login'>Log In</Link>}
           </li>
-          <li>
-            <Link to='/signup'>Sign Up</Link>
-          </li>
+          {!isLoggedIn && (
+            <li>
+              <Link to='/signup'>Sign Up</Link>
+            </li>
+          )}
           <li>{isLoggedIn && <Link to='/newpost'>New Post</Link>}</li>
         </ul>
       </Nav>

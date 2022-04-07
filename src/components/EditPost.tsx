@@ -1,6 +1,7 @@
 import { SyntheticEvent, useContext, useRef } from 'react';
 import { PostsContext } from '../PostsProvider';
 import { Posts } from '../types/types';
+import { StyledForm } from './styles/StyledForm.styled';
 
 export default function EditPost({
   blogPost,
@@ -39,28 +40,35 @@ export default function EditPost({
     }
   }
   return (
-    <section className="edit-post-container">
-      <form action="post" onSubmit={handleSubmit}>
-        <label htmlFor="title">Edit Post Title:</label>
+    <section className='edit-post-container'>
+      <StyledForm method='post' submit={handleSubmit}>
+        <label htmlFor='title'>Edit Post Title:</label>
         <input
-          type="text"
-          id="title"
-          className="edit-title"
+          type='text'
+          id='title'
+          className='edit-title'
           defaultValue={blogPost.title}
           ref={postTitle}
         />
-        <label htmlFor="date">Edit Post Date</label>
+        <label htmlFor='date'>Edit Post Date</label>
         <input
-          type="date"
-          name="date"
-          id="date"
+          type='date'
+          name='date'
+          id='date'
           defaultValue={blogPost.timeStamp.split('T')[0]}
           ref={postDate}
         />
-        <label htmlFor="body">Edit Post Body:</label>
-        <textarea id="body" className="edit-body" defaultValue={blogPost.body} ref={postBody} />
+        <label htmlFor='body'>Edit Post Body:</label>
+        <textarea
+          id='body'
+          className='edit-body'
+          defaultValue={blogPost.body}
+          ref={postBody}
+          cols={40}
+          rows={8}
+        />
         <button>Submit Changes</button>
-      </form>
+      </StyledForm>
     </section>
   );
 }
