@@ -23,12 +23,17 @@ export const StyledModal = styled(Modal)`
 
     h2 {
       grid-column: 1 / -1;
+      grid-row: 1 /2;
       font-size: 3rem;
       font-weight: 400;
+      text-align: center;
     }
     button {
       width: 10rem;
       height: 3.33rem;
+    }
+    button:nth-of-type(2) {
+      grid-row: auto;
     }
   }
 `;

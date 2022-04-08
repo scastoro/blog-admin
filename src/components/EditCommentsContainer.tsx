@@ -4,8 +4,8 @@ import { PostsContext } from '../PostsProvider';
 import { CommentsList, Comments } from '../types/types';
 import { StyledButton } from './styles/StyledButton.styled';
 import EditComment from './EditComment';
-import Modal from './Modal';
 import { StyledComments } from './styles/EditCommentsContainer.styled';
+import { StyledModal } from './styles/StyledModal.styled';
 
 function EditCommentsContainer({ commentsList }: CommentsList) {
   const [showDeleteModal, setShowDeleteModal] = useState(false);
@@ -55,8 +55,9 @@ function EditCommentsContainer({ commentsList }: CommentsList) {
     <section className='edit-comments-container'>
       {editComments}{' '}
       {showDeleteModal && (
-        <Modal
+        <StyledModal
           name='Delete Comment'
+          comment={true}
           handleAction={deleteComment}
           handleShow={toggleShowDeleteModal}
         />

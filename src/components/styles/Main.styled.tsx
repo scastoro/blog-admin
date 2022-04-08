@@ -20,6 +20,9 @@ export const Main = styled.main`
     button {
       margin-left: 0;
     }
+    input {
+      width: 24.5rem;
+    }
   }
   .login-container {
     width: 60%;

@@ -17,7 +17,7 @@ export const StyledComments = styled(EditComments)`
   button.delete {
     width: 80%;
     height: 30%;
-    align-self: center;
+    align-self: flex-start;
     justify-self: flex-start;
   }
   button {

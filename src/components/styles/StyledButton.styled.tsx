@@ -17,9 +17,11 @@ export const StyledButton = styled(Button)`
   border: none;
   padding: ${(props) => !props.children && '4px 21px'};
   border-radius: 15px;
-  margin: 0 5px;
   height: 2.75rem;
 
+  &:hover {
+    opacity: 0.75;
+  }
   a {
     display: inline-block;
     padding: ${(props) => props.children && '4px 21px'};
