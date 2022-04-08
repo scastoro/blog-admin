@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import Main from './components/Main';
 import { PostsContext } from './PostsProvider';
-import Loading from './components/Loading';
+import { StyledLoading } from './components/Loading';
 import { Link } from 'react-router-dom';
 import { Nav } from './components/styles/Nav.styled';
 
@@ -48,7 +48,7 @@ function App() {
           <li>{isLoggedIn && <Link to='/newpost'>New Post</Link>}</li>
         </ul>
       </Nav>
-      {isLoading ? <Loading /> : <Main />}
+      {isLoading ? <StyledLoading /> : <Main />}
     </div>
   );
 }

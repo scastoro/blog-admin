@@ -18,6 +18,7 @@ export const StyledButton = styled(Button)`
   padding: ${(props) => !props.children && '4px 21px'};
   border-radius: 15px;
   margin: 0 5px;
+  height: 2.75rem;
 
   a {
     display: inline-block;
